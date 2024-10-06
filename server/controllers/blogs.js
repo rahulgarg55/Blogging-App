@@ -47,6 +47,14 @@ export const createBlog = async (req, res) => {
     res.status(409).json({ message: error.message });
   }
 }
+//The $unwind operator in MongoDB is used to deconstruct an array field from the input documents to output a document for each element. In this specific case, it's being used on the "tags" field of the Blog documents.
+
+// Here's what it does in this context:
+
+// It takes each document in the Blog collection.
+// For each document, it creates a new document for every element in the "tags" array.
+// For example, if a blog post has tags ["javascript", "react", "nodejs"], the $unwind operation will create three separate documents, each with one of these tags.
+
 
 export const getPopularTags = async (req, res) => {
 
